@@ -14,7 +14,7 @@
   </head>
   <body>
     
-    <div class="d-flex">
+    <div class=" wrapper d-flex">
         
         <?php include_once("sidebar-admin.php") ?>
 

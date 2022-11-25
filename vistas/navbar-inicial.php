@@ -1,8 +1,20 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="css/general.css">
+</head>
+<body>
+  
+</body>
+</html>
   <nav class="navbar navbar-expand-lg bg-light border-bottom">
     <div class="container-fluid">
-      <div class="logo ms-5 px-5">
-        <img src="images\logo_utp.png" style ="width:90px;" alt="">                
+      <div class="logo-lg ms-5 px-5">
+        <img src="images\logo_utp.png" alt="">                
       </div>  
     
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

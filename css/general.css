@@ -1,11 +1,11 @@
 :root{
     --primary: #681a5d;
-    --secondary: #254e37;
+    --secondary: #254e3772;
     --gold1:#ae8421;
     --light: #ffffff;
     --white:#e2e2e2;
     --silver-white: #f6f6f6;
-    --light-grey: #efefef;
+    --light-grey: #9f9d9d;
     --dark-grey:#2a2a2e;
     --dark: #000000;
 }
@@ -14,8 +14,20 @@
     background-color: var(--primary) !important;
 }
 
+.bg-secondary{
+    background-color: var(--secondary);
+}
+
 .bg-light{
     background: var(--light) !important;
+}
+
+.bg-ligtgrey{
+    background-color: var(--light-grey);
+}
+
+.bg-silver-white{
+    background-color: var(--silver-white);
 }
 
 .bg-grey{
@@ -29,6 +41,12 @@
 }
 .text-secondary{
     color: var(--secondary) !important;
+}
+
+.btn-primary{
+    background-color: var(--primary);
+    color: var(--light-grey);
+    border: none;
 }
 
 body{
@@ -49,8 +67,8 @@ body{
 }
 
 .logo-lg img{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 .sidebar .logo img{
@@ -95,7 +113,7 @@ body{
 }
 
 footer{
-    height: 10vh;
+    height: 20vh;
     position: relative;
     border-top:solid;
     bottom:0;
