@@ -1,0 +1,48 @@
+:root{
+    --primary: #681a5d;
+    --light: #ffffff;
+    --grey: #efefef;
+    --dark: #000000;
+}
+
+.btn-primary,
+.bg-primary{
+    background-color: var(--primary) !important;
+}
+
+.bg-light{
+    background: var(--light) !important;
+}
+
+.bg-grey{
+    background: var(--grey) !important;
+}
+.bg-mix{
+    background: linear-gradient(180deg, var(--light)50%,var(--grey)0);
+}
+.text-primary{
+    color: var(--primary) !important; ;
+}
+
+body{
+    overflow: hidden;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 300;
+    color: var(--dark);
+}
+
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+
+.wrapper.logo{
+    width: 100px;
+}
+
+.wrapper.logo img{
+    display: block;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: inherit;
+}
