@@ -1,7 +1,7 @@
 
 <div class="sidebar bg-primary">
   <div class="logo">
-    <img src="..\images\logo_utp.png" alt="">                
+    <img src="../../images/logo_utp.png" alt="">                
   </div>
   
   <div class="menu">

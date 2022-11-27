@@ -2,6 +2,7 @@
     --primary: #681a5d;
     --secondary: #254e3772;
     --gold1:#ae8421;
+    --grey:#6f6f6d;
     --light: #ffffff;
     --white:#e2e2e2;
     --silver-white: #f6f6f6;
@@ -15,26 +16,26 @@
 }
 
 .bg-secondary{
-    background-color: var(--secondary);
+    background-color: var(--secondary) !important;
 }
 
 .bg-light{
     background: var(--light) !important;
 }
 
-.bg-ligtgrey{
+.ligtgrey{
     background-color: var(--light-grey);
 }
 
-.bg-silver-white{
+.silver-white{
     background-color: var(--silver-white);
 }
 
-.bg-grey{
-    background: var(--grey) !important;
+.grey{
+    background: var(--grey);
 }
 .bg-mix{
-    background: linear-gradient(180deg, var(--light)50%,var(--grey)0);
+    background: linear-gradient(180deg, va  r(--light)50%,var(--grey)0);
 }
 .text-primary{
     color: var(--primary) !important; ;
@@ -54,7 +55,7 @@ body{
     font-family: 'Chakra Petch', sans-serif;
     font-size: 350;
     font-weight: 300;
-    color: var(--secondary);
+    color: var(--dark);
 }
 
 .sidebar{

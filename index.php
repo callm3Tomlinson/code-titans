@@ -29,7 +29,7 @@
           <h4 class="title mt-2 mx-auto">Inicie Sesión Aquí</h4>
         </div>
 
-        <form action="vistas\admin.php" class="col-lg-3 w-50">
+        <form action="view\\admin.php" class="col-lg-3 w-50">
           <div class="input-group mb-3">
             <span class="input-group-text">@</span>
             <input type="text" class="form-control" placeholder="Username" required>
