@@ -19,7 +19,42 @@
                                 </div>
                             </div>
                         </div>
-                    </section>                    
+                    </section> 
+                    
+                    <section class=" w-50 my-3">
+                        <div class="align-items-center">
+                            <form class=" w-100" id="" name="" action="" method="">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre:</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                                    
+                                <div class="mb-3">
+                                    <label for="apellido" class="form-label">Apellido:</label>
+                                    <input type="text" class="form-control" id="apellido" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="correo" class="form-label">Correo:</label>
+                                    <input type="text" class="form-control" id="correo" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="pass" class="form-label">Contraseña:</label>
+                                    <input type="password" class="form-control" id="pass" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>seleccione tipo de usuario</option>
+                                        <option value="1">admin</option>
+                                        <option value="2">personal de ventas</option>
+                                        <option value="3">personal de cocina</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+
+                            </form>
+                        </div>                        
+                    </section>
                 </div>
                 
                 <?php include_once("templates/footer.php") ?>

@@ -11,7 +11,7 @@
                         
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../../images/me.png" alt="" class="img-fluid rounded-circle me-2 avatar">
+              <img src="images/me.png" alt="" class="img-fluid rounded-circle me-2 avatar">
               <span class="fw-bold">Charles A. Tomlinson</span>
             </a>
             
@@ -19,7 +19,7 @@
               <li><a class="dropdown-item" href="#">Ver perfil</a></li>
               <li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="..\index.php">Cerrar Sesión</a></li>
+              <li><a class="dropdown-item" href="./?op=cerrar_sesion">Cerrar Sesión</a></li>
             </ul>
           </li>                      
         </ul>                    

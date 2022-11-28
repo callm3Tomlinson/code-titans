@@ -7,7 +7,7 @@
     --white:#e2e2e2;
     --silver-white: #f6f6f6;
     --light-grey: #9f9d9d;
-    --dark-grey:#2a2a2e;
+    --dark-grey:#2a2a2e57;
     --dark: #000000;
 }
 
@@ -23,7 +23,11 @@
     background: var(--light) !important;
 }
 
-.ligtgrey{
+.darkgrey{
+    background-color: var(--dark-grey) !important;
+}
+
+.lightgrey{
     background-color: var(--light-grey);
 }
 

@@ -1,8 +1,8 @@
 <?php 
     include_once 'templates/header.php';
-    include_once '../controller/usuarioController.php';
+    include_once 'controller/usuarioController.php';
 
-    $obj = new Controller();
+    $obj = new UsuarioController();
     $listaUsuarios = $obj->consultarUsuarios();    
 ?>
     
@@ -26,7 +26,7 @@
                             </div>
 
                             <div class="col me-5">
-                                <a class="btn btn-primary text-light " href="crearUsuario.php">Crear Nuevo Usuario</a>
+                                <a class="btn btn-primary text-light " href="./?op=crearUsuario">Crear Nuevo Usuario</a>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                         <h6 class="fw-bold mb-0 text-center">Tabla de Usuarios</h6>
                                     </div>
 
-                                    <table class="table">
+                                    <table class="table text-center">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
@@ -53,21 +53,25 @@
                                                         <th>Acción</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody class="">
                                                     <?php
 
                                                         $n = 1;                                                        
                                                         foreach($listaUsuarios as $users){
-                                                            echo "<tr>";
-                                                            echo "<td>".$n."</td>";
-                                                            echo "<td>".$users['nombre']."</td>";
-                                                            echo "<td>".$users['apellido']."</td>";
-                                                            echo "<td>".$users['correo']."</td>";
-                                                            echo "<td>".$users['id_tipo']."</td>";
-                                                            echo "<td>".$users['foto']."</td>";
-                                                            echo "<td></td>";
-                                                            echo "</tr>";
-
+                                                            ?>
+                                                                <tr>
+                                                                    <td><?php echo $n;?></td>
+                                                                    <td><?php echo $users['nombre'];?></td>
+                                                                    <td><?php echo $users['apellido'];?></td>
+                                                                    <td><?php echo $users['correo'];?></td>
+                                                                    <td><?php echo $users['id_tipo'];?></td>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <a href="" class="btn btn-info">modificar</a>
+                                                                        <a href="" class=" btn btn-danger">eliminar</a>
+                                                                    </td>
+                                                                </tr>                                                            
+                                                            <?php
                                                             $n++;
                                                         }
                                                     ?>

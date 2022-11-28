@@ -24,7 +24,7 @@
             }
         }
 
-        public function registrarUsuario(usuario $data){
+        public function RegistrarUsuario(usuario $data){
 
             try{
                 $sql ="INSERT INTO usuario (id_tipo,nombre, apellido, correo, pass, foto)
@@ -35,7 +35,7 @@
                             $data->id_tipo,
                             $data->nombre,
                             $data->apellido,
-                            $data->email,
+                            $data->correo,
                             $data->pass,
                             $data->foto
                         )
@@ -54,7 +54,7 @@
             return $this->msg;
         }
 
-        public function consultarTodosLosUsuarios(){
+        public function ConsultarTodosLosUsuarios(){
 
             try{
                 $stm = $this->pdo->prepare("SELECT nombre,apellido,correo,id_tipo,foto FROM usuario");
@@ -65,5 +65,15 @@
                 die($e->getMessage());
             }
         }
+
+        public function Consultar(usuario $data){
+            try{
+                $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE correo = ? AND pass=?");
+                $stm->execute(array($data->correo, $data->pass));
+                return $stm->fetch(PDO::FETCH_OBJ);
+            }catch (Exception $e){
+                die($e->getMessage());
+            }
+	    }
     }
 ?>
