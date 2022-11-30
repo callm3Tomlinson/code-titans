@@ -1,9 +1,5 @@
 <?php 
     include_once 'templates/header.php';
-    include_once 'controller/usuarioController.php';
-
-    $obj = new UsuarioController();
-    $listaUsuarios = $obj->consultarUsuarios();    
 ?>
     
     <div class="d-flex">
@@ -13,7 +9,7 @@
 
         <div class="w-100">
             
-        <?php include_once("templates/navbar.php") ?>
+        <?php include("templates/navbar.php") ?>
 
         <div class="content-wrapper">
 
@@ -36,6 +32,27 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 my-3">
+
+                                    <p class="text-center">
+                                        <?php 
+                                            if (isset($_GET['msg']) && $_GET['msg']=="1"){ 
+                                                ?>
+                                                <div class="alert alert-success" role="alert">
+                                                    Los datos se eliminaron exisomente...
+                                                </div> 
+                                                <?php 
+                                            } else if (isset($_GET['msg']) && $_GET['msg']=="-1"){
+                                                ?>
+                                                <div class="alert alert-danger" role="alert">
+                                                    Se produjo un error al eliminar los datos...
+                                                </div>
+                                                <?php 
+                                            }
+                                        
+                                        ?>
+                                    </p>
+
+
                                 <div class="card rounded-0">
                                     <div class="card-header bg-light">
                                         <h6 class="fw-bold mb-0 text-center">Tabla de Usuarios</h6>
@@ -45,6 +62,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
+                                                        <th>Id</th>
                                                         <th>Nombre</th>
                                                         <th>Apellido</th>
                                                         <th>Correo</th>
@@ -58,27 +76,62 @@
 
                                                         $n = 1;                                                        
                                                         foreach($listaUsuarios as $users){
+                                                            if($users['id_tipo']==4){ ?>
+                                                                <tr>
+                                                                    <td><?php echo $n;?></td>
+                                                                    <td><?php echo $users['id'];?></td>
+                                                                    <td><?php echo $users['nombre'];?></td>
+                                                                    <td><?php echo $users['apellido'];?></td>
+                                                                    <td><?php echo $users['correo'];?></td>
+                                                                    <td><?php echo $users['id_tipo'];?></td>
+                                                                    <td></td>
+                                                                </tr>                                                           
+
+
+                                                            <?php }else{
                                                             ?>
                                                                 <tr>
                                                                     <td><?php echo $n;?></td>
+                                                                    <td><?php echo $users['id'];?></td>
                                                                     <td><?php echo $users['nombre'];?></td>
                                                                     <td><?php echo $users['apellido'];?></td>
                                                                     <td><?php echo $users['correo'];?></td>
                                                                     <td><?php echo $users['id_tipo'];?></td>
                                                                     <td></td>
                                                                     <td>
-                                                                        <a href="" class="btn btn-info">modificar</a>
-                                                                        <a href="" class=" btn btn-danger">eliminar</a>
+                                                                        <a href="./?op=actualizarUsuario&id=<?=$users['id'];?>" class="btn btn-info">modificar</a>
+                                                                        <a href="./?op=eliminarUsuario&id=<?=$users['id'];?>" class=" btn btn-danger">eliminar</a>
+
+                                                                        <!-- Modal -->
+                                                                        <!--div class="modal fade" id="exampleModal">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">¿Está seguro(a) que desea eliminar este usuario?</h1>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        Una vez eliminado el usuario, no podra restablecerlo...
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-secondary text-light" data-bs-dismiss="modal">Cancelar</button>
+                                                                                        <a href="">
+                                                                                            <button type="button" class="btn btn-danger text-light">Eliminar</button>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div-->
+
                                                                     </td>
                                                                 </tr>                                                            
-                                                            <?php
+                                                            <?php }
+
                                                             $n++;
                                                         }
                                                     ?>
                                                 </tbody>
-                                    </table>
-                                        
-                                    
+                                    </table>     
                                 </div>
                             </div>                            
                         </div>

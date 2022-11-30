@@ -7,7 +7,7 @@
     <a href="./?op=panel-ventas" class="d-block text-light ps-5 p-3"><i class="icon me-2 lead ion-md-apps"></i>Tablero</a>    
     <a href="./?op=menus" class="d-block text-light ps-5 p-3"><i class="icon me-2 lead ion-md-restaurant"></i>Menús</a>
     <a href="./?op=ventas" class="d-block text-light ps-5 p-3"><i class="icon me-2 lead ion-md-cash"></i>Ventas</a>
-    <a href="./?op=reportes" class="d-block text-light ps-5 p-3"><i class="icon me-2 lead ion-md-document"></i>Reportes</a>
+    
   </div>
 </div>
 

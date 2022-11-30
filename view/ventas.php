@@ -1,11 +1,17 @@
-<?php 
+<?php
 
-    include_once 'templates/header.php';
+include_once 'templates/header.php';
+include_once 'controller/ventaController.php';
 ?>
     
     <div class="d-flex">
-        <?php include_once("templates/sidebar-admin.php") ?>
-
+        <?php
+        if ($_SESSION['id_tipo'] == 1 || $_SESSION['id_tipo'] == 4) {
+            include_once 'templates/sidebar-admin.php';
+        } elseif ($_SESSION['id_tipo'] == 2) {
+            include_once 'templates/sidebar-ventas.php';
+        }
+        ?>
         <div class="w-100">
             <?php include_once("templates/navbar.php") ?>
 
@@ -29,12 +35,42 @@
                                 <div class="col-lg-12 my-3">
                                     <div class="card rounded-0">
                                         <div class="card-header bg-light">
-                                            <h6 class="fw-bold mb-0 text-center">Registro de venta</h6>
+                                            <h6 class="fw-bold mb-0 text-center">Reporte de ventas</h6>
                                         </div>
 
-                                        <div class="card-body">
-                                            <canvas id="myChart"></canvas>
-                                        </div>
+                                            <table class="table text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Id_Venta</th>
+                                                        <th>Tipo de Cliente</th>
+                                                        <th>Actualizado por</th>
+                                                        <th>Monto</th>
+                                                        <th>Fecha</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="">
+                                                    <?php
+                                                        $obj = new ventaController();
+                                                        $listaVenta = $obj->ConsultarVentasDatos();
+                                                        $n = 1;                                                        
+                                                        foreach($listaVenta as $ventas){
+                                                             ?>
+                                                                <tr>
+                                                                    <td><?php echo $n;?></td>
+                                                                    <td><?php echo $ventas['id'];?></td>
+                                                                    <td><?php echo $ventas['tipo_cliente'];?></td>
+                                                                    <td><?php echo $ventas['actualizado_por'];?></td>
+                                                                    <td><?php echo $ventas['monto'];?></td>
+                                                                    <td><?php echo $ventas['fecha'];?></td>
+                                                                </tr>
+                                                            <?php }
+
+                                                            $n++;                                                        
+                                                    ?>
+                                                </tbody>
+                                    </table>
+                                
                                     </div>
                                 </div>                            
                             </div>

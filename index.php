@@ -12,12 +12,8 @@ $usuario = new UsuarioController;
 if (isset($_GET['op']))
 {
     $opcion=$_GET['op'];
-    if ($opcion=="crear"){
-        //Llamo al método ver pasándole la clave que me están pidiendo
-        $usuario->CrearUsuario();
-    }
 
-    elseif ($opcion=="registrar"){
+    if ($opcion=="registrar"){
         //Llamo al método ver pasándole la clave que me están pidiendo
         $usuario->Guardar();
     }
@@ -39,12 +35,25 @@ if (isset($_GET['op']))
 
     elseif($opcion=="usuarios"){
         //Llamada al método para cerrar sesión...
-        $controller->VerUsuarios();
+        $usuario->ConsultarUsuarios();
     }
 
     elseif($opcion=="crearUsuario"){
         //Llamada al método para presetar la pantalla para crear usuario
-        $controller->CrearUsuario();
+        $usuario->CrearUsuario();
+    }
+
+    elseif($opcion=="actualizarUsuario"){
+        $usuario->ActualizarUsuario();
+    }
+
+    elseif($opcion=="modificar"){
+        $usuario->ActualizarDatos();
+    }
+
+    elseif($opcion=="eliminarUsuario"){
+        
+        $usuario->EliminarUsuario();
     }
 
     elseif($opcion=="menus"){
@@ -65,13 +74,13 @@ if (isset($_GET['op']))
     elseif ($opcion=="actualizar"){
         //Llamo al método ver pasándole la clave que me están pidiendo
     
-        $usuario->ActualizarDatos();
+        $usuario->ActualizarUsuario();
 
     }
     
     elseif($opcion=="cerrar_sesion"){
         //Llamada al método para cerrar sesión...
-        $controller->Login();        
+        $controller->Logout();        
     }
 
     else{

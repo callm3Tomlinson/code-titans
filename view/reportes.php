@@ -3,10 +3,16 @@
 include_once 'templates/header.php';
 ?>    
     <div class="d-flex">
-        <?php include_once("templates/sidebar-admin.php") ?>
+    <?php 
+        if($_SESSION['id_tipo']==1 || $_SESSION['id_tipo']==4){
+            include_once 'templates/sidebar-admin.php';
+        }elseif($_SESSION['id_tipo']==2){
+            include_once 'templates/sidebar-ventas.php'; 
+        }   
+    ?>
 
         <div class="w-100">
-            <?php include_once("templates/navbar.php") ?>
+            <?php include("templates/navbar.php") ?>
 
             <div class="content-wrapper">
                 <div class="content">

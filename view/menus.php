@@ -1,10 +1,18 @@
 <?php 
+    
     include_once 'templates/header.php';
+    include_once 'controller/menuController.php';
 ?>
     
     <div class=" wrapper d-flex">
         
-    <?php include_once("templates/sidebar-admin.php") ?>
+    <?php 
+        if($_SESSION['id_tipo']==1 || $_SESSION['id_tipo']==4){
+            include_once 'templates/sidebar-admin.php';
+        }elseif($_SESSION['id_tipo']==2){
+            include_once 'templates/sidebar-ventas.php'; 
+        }   
+    ?>
 
         <div class="w-100">
             
@@ -28,53 +36,47 @@
                             <div class="col-lg-12 my-3">
                                 <div class="card rounded-0">
                                     <div class="card-header bg-light">
-                                        <h6 class="fw-bold mb-0 text-center">Desayunos</h6>
+                                        <h6 class="fw-bold mb-0 text-center">Menus</h6>
                                     </div>
 
-                                    <div class="card-body">
-                                        <canvas id="myChart"></canvas>
-                                    </div>
+                                    <table class="table text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>id_articulo</th>
+                                                        <th>descripcion</th>
+                                                        <th>precio</th>
+                                                        <th>cantidad</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="">
+                                                    <?php
+
+                                                        $obj = new menuController();
+                                                        $listaMenus = $obj->ConsultarMenus();
+                                                        
+                                                        $n = 1;                                                        
+                                                        foreach($listaMenus as $menus){
+                                                             ?>
+                                                                <tr>
+                                                                    <td><?php echo $n;?></td>
+                                                                    <td><?php echo $menus['id_articulo'];?></td>
+                                                                    <td><?php echo $menus['descripcion'];?></td>
+                                                                    <td><?php echo $menus['precio'];?></td>
+                                                                    <td><?php echo $menus['cantidad'];?></td>
+                                                                </tr>
+                                                            <?php }
+                                                            $n++;                                                        
+                                                    ?>
+                                                </tbody>
+                                    </table>
+                                
                                 </div>
                             </div>                            
                         </div>
                     </div>
-                </section>
+                </section>    
 
-                <section class="bg-grey border-bottom">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 my-3">
-                                <div class="card rounded-0">
-                                    <div class="card-header bg-light">
-                                        <h6 class="fw-bold mb-0 text-center">Almuerzos</h6>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <canvas id="myChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-                </section>
-
-                <section class="bg-grey">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 my-3">
-                                <div class="card rounded-0">
-                                    <div class="card-header bg-light">
-                                        <h6 class="fw-bold mb-0 text-center">Cenas</h6>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <canvas id="myChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-                </section>                
             </div>
             <?php include_once("templates/footer.php") ?>
 

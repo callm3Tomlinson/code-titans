@@ -24,11 +24,22 @@ class Controller
 
     }
 
+    public function Logout(){
+        require("view/logout.php");
+    }
+
+    public function Menu($id){
+        
+        if($id == 1){
+
+        }
+    }
+
     public function Ingresar(){
         $ingresarUsuario = new Usuario();
         
         $ingresarUsuario->correo = $_REQUEST['correo'];  
-        $ingresarUsuario->pass = $_REQUEST['pass'];        
+        $ingresarUsuario->pass = md5($_REQUEST['pass']);        
         $resultado= $this->model->consultar($ingresarUsuario);
         
         
@@ -39,14 +50,14 @@ class Controller
                 $_SESSION["user"] = $resultado->nombre." ".$resultado->apellido;
                 $_SESSION['id'] = $resultado->id;
                 $_SESSION['foto'] = $resultado->foto;
+                $_SESSION['id_tipo'] = $resultado->id_tipo;
 
-                if($resultado->id_tipo == 1){
+                if($_SESSION['id_tipo'] == 1 || $_SESSION['id_tipo']==4){
                     header('Location: ?op=panel-admin');
                 }
-                elseif($resultado->id_tipo == 2){
+                elseif($_SESSION['id_tipo'] == 2){
                     header('Location: ?op=panel-ventas');
                 }
-
                 
             }else{
                 header('Location: ?&msg=Su contraseña o/y usuario está incorrecto');
@@ -80,11 +91,7 @@ class Controller
     public function IngresarPanelVentas(){
 
         require("view/panel-ventas.php");
-    }
-
-    public function VerUsuarios(){
-        require("view/usuarios.php");
-    }
+    }  
 
     public function CrearUsuario(){
         require("view/crearUsuario.php");
