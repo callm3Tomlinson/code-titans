@@ -1,7 +1,7 @@
 <?php
 
     include_once 'templates/header.php';
-    include_once '../controller/ventaController';
+    include_once 'controller/ventaController.php';
     $nombreusuario = $_SESSION["user"]; 
 
 ?>
